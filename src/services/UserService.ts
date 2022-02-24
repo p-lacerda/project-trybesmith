@@ -1,10 +1,12 @@
 import UserModel from '../models/UserModel';
-import { User } from '../interfaces/User';
+import { User, IUser } from '../interfaces/User';
 
-const createUser = async (user: User): Promise<User> => {
-  const users = await UserModel.createUser(user);
+const createUser = async (user: User): Promise<IUser> => {
+  const id = await UserModel.createUser(user);
 
-  return users;
+  const { username } = user;
+  const userWithID = { username, id };
+  return userWithID;
 };
 
 export default {

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import errorMessages from './errorCodes';
 
-const usernameValidation = (req: Request, res: Response, next:NextFunction) => {
+const usernameValidation = (req: Request, res: Response, next:NextFunction):any => {
   const { username } = req.body;
 
   if (!username) {
@@ -22,7 +22,7 @@ const usernameValidation = (req: Request, res: Response, next:NextFunction) => {
   next();
 };
 
-const classeValidation = (req: Request, res: Response, next: NextFunction) => {
+const classeValidation = (req: Request, res: Response, next: NextFunction):any => {
   const { classe } = req.body;
 
   if (!classe) {
@@ -43,7 +43,7 @@ const classeValidation = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-const levelValidation = (req: Request, res: Response, next: NextFunction) => {
+const levelValidation = (req: Request, res: Response, next: NextFunction):any => {
   const { level } = req.body;
 
   if (level === undefined) {
@@ -64,7 +64,7 @@ const levelValidation = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-const passwordValidation = (req: Request, res: Response, next: NextFunction) => {
+const passwordValidation = (req: Request, res: Response, next: NextFunction):any => {
   const { password } = req.body;
 
   if (!password) {

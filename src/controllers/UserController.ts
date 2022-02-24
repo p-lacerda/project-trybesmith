@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import UserService from '../services/UserService';
-import { User } from '../interfaces/User';
+import { User, IUser } from '../interfaces/User';
 import jwtValidations from '../middlewares/jwtValidations';
 
 const createUser = async (req: Request, res: Response):Promise<void> => {
-  const user = req.body;
+  const user: User = req.body;
 
   // Send user body to services and receive a message and status code
-  const users: User = await UserService.createUser(user);
+  const users: IUser = await UserService.createUser(user);
   
   const token: string = jwtValidations.createToken(users);
   
