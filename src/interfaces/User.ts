@@ -4,3 +4,7 @@ export interface User {
   level: number,
   password: string
 }
+
+export interface UserID extends User {
+  id: number,
+}

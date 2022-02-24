@@ -1,19 +1,19 @@
 import { Request, Response } from 'express';
 import UserService from '../services/UserService';
-// import { User } from '../interfaces/User';
-import { Status } from '../interfaces/StatusCode';
+import { User } from '../interfaces/User';
+import jwtValidations from '../middlewares/jwtValidations';
 
-class UserController {
-  createUser = async (req: Request, res: Response): Promise<void> => {
-    const { body: user } = req;
-  
-    // Send user body to services and receive a message and status code
-    const userStatus: Status = await UserService.createUser(user);
-  
-    res.status(userStatus.code).json(userStatus.message);
-  };
-}
+const createUser = async (req: Request, res: Response):Promise<void> => {
+  const user = req.body;
 
-export = {
-  UserController,
+  // Send user body to services and receive a message and status code
+  const users: User = await UserService.createUser(user);
+  
+  const token: string = jwtValidations.createToken(users);
+  
+  res.status(201).json({ token });
+};
+
+export default {
+  createUser,
 };
