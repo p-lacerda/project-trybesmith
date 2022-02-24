@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import LoginService from '../services/LoginService';
 import jwtValidations from '../middlewares/jwtValidations';
 
-const loginUser = async (req: Request, res: Response) => {
+const loginUser = async (req: Request, res: Response):Promise<any> => {
   const user = req.body;
 
   const users = await LoginService.loginUser(user);

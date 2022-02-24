@@ -15,18 +15,18 @@ const validateToken = async (req: any, res: any, next: NextFunction) => {
   const token = req.headers.authorization;
 
   if (!token) {
-    return res.status(401).json({ message: 'Token not found' });
+    return res.status(401).json({ error: 'Token not found' });
   }
 
   try {
     const decoded:any = jwt.verify(token, SECRET);
-    const user = { username: decoded.data.username, password: decoded.data.password };
-    const users:ILogin[] | null = await LoginModel.findUser(user);
+    const user:any = { username: decoded.data.username, id: decoded.data.id };
+    const users:ILogin[] | null = await LoginModel.findUserByID(user);
 
     req.user = users;
     next();
   } catch (err:any) {
-    console.log(err);
+    res.status(401).json({ error: 'Invalid token' });
   }
 };
 

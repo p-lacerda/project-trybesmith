@@ -47,6 +47,30 @@ const errorMessages = {
     error: 'Password must be longer than 7 characters',
     code: 422,
   },
+  nameIsRequired: {
+    error: 'Name is required',
+    code: 400,
+  },
+  nameString: {
+    error: 'Name must be a string',
+    code: 422,
+  },
+  nameLongerThan: {
+    error: 'Name must be longer than 2 characters',
+    code: 422,
+  },
+  amountIsRequired: {
+    error: 'Amount is required',
+    code: 400,
+  },
+  amountString: {
+    error: 'Amount must be a string',
+    code: 422,
+  },
+  amountLongerThan: {
+    error: 'Amount must be longer than 2 characters',
+    code: 422,
+  },
 };
 
 export default errorMessages;
