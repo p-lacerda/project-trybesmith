@@ -25,8 +25,8 @@ const findAll = async () => {
   return result;
 };
 
-const updateProduct = async (products:any, id:any) => {
-  products.map(async (product: any) => {
+const updateProduct = async (products: number[], id: number) => {
+  products.map(async (product: number) => {
     await connection.execute<ResultSetHeader>(
       `UPDATE Trybesmith.Products
       SET orderId = ?
