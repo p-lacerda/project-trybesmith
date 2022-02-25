@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import errorMessages from './errorCodes';
 
-const nameValidation = (req: Request, res: Response, next:NextFunction):any => {
+const nameValidation = (req: Request, res: Response, next:NextFunction) => {
   const { name } = req.body;
 
   if (!name) {
@@ -22,7 +22,7 @@ const nameValidation = (req: Request, res: Response, next:NextFunction):any => {
   next();
 };
 
-const amountValidation = (req: Request, res: Response, next: NextFunction):any => {
+const amountValidation = (req: Request, res: Response, next: NextFunction) => {
   const { amount } = req.body;
 
   if (!amount) {

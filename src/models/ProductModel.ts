@@ -25,7 +25,19 @@ const findAll = async () => {
   return result;
 };
 
+const updateProduct = async (products:any, id:any) => {
+  products.map(async (product: any) => {
+    await connection.execute<ResultSetHeader>(
+      `UPDATE Trybesmith.Products
+      SET orderId = ?
+      WHERE id = ?;`,
+      [id, product],
+    );
+  });
+};
+
 export default {
   createProduct,
   findAll,
+  updateProduct,
 };

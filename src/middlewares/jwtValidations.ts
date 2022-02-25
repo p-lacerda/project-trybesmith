@@ -20,7 +20,7 @@ const validateToken = async (req: any, res: any, next: NextFunction) => {
 
   try {
     const decoded:any = jwt.verify(token, SECRET);
-    const user:any = { username: decoded.data.username, id: decoded.data.id };
+    const user:any = { username: decoded.data[0].username, id: decoded.data[0].id };
     const users:ILogin[] | null = await LoginModel.findUserByID(user);
 
     req.user = users;

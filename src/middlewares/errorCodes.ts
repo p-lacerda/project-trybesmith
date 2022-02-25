@@ -71,6 +71,18 @@ const errorMessages = {
     error: 'Amount must be longer than 2 characters',
     code: 422,
   },
+  productsIsRequired: {
+    error: 'Products is required',
+    code: 400,
+  },
+  productsArray: {
+    error: 'Products must be an array of numbers',
+    code: 422,
+  },
+  productsNotEmpty: {
+    error: 'Products can\'t be empty',
+    code: 422,
+  },
 };
 
 export default errorMessages;

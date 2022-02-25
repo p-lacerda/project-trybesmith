@@ -11,6 +11,7 @@ const findUser = async (user:Login):Promise<ILogin[] | null> => {
 
   if (result.length === 0) return null;
 
+  console.log(result);
   return result;
 };
 
@@ -21,7 +22,7 @@ const findUserByID = async (user:ILogin):Promise<ILogin[] | null> => {
     [username, id],
   );
 
-  if (result.length === 0) return null;
+  if (!result) return null;
 
   return result;
 };
