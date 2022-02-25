@@ -1,10 +1,10 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import OrderService from '../services/OrderService';
 
-const createOrder = async (req: any, res: Response):Promise<void> => {
+const createOrder = async (req: Request, res: Response):Promise<void> => {
   const { products } = req.body;
   
-  const orders = await OrderService.createOrder(products, req.user[0].id);
+  const orders = await OrderService.createOrder(products, res.locals[0].id);
 
   res.status(201).json(orders);
 };

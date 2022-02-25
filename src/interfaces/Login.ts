@@ -9,3 +9,8 @@ export interface ILogin extends RowDataPacket {
   username: string,
   id: number,
 }
+
+export interface LoginID {
+  username: string,
+  id: number,
+}

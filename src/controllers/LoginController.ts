@@ -6,10 +6,10 @@ const loginUser = async (req: Request, res: Response) => {
   const user = req.body;
 
   const users = await LoginService.loginUser(user);
-
+  
   if (users === null) return res.status(401).json({ error: 'Username or password invalid' });
 
-  const token = jwtValidations.createToken(users);
+  const token = jwtValidations.createToken(users[0]);
   
   res.status(200).json({ token });
 };
