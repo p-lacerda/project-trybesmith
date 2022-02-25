@@ -1,4 +1,5 @@
 import { Login, ILogin } from '../interfaces/Login';
+import { IUser } from '../interfaces/User';
 import connection from './connection';
 
 // 
@@ -15,7 +16,7 @@ const findUser = async (user:Login):Promise<ILogin[] | null> => {
   return result;
 };
 
-const findUserByID = async (user:ILogin):Promise<ILogin[] | null> => {
+const findUserByID = async (user:IUser):Promise<ILogin[] | null> => {
   const { username, id } = user;
   const [result] = await connection.query<ILogin[]>(
     'SELECT username, id FROM Trybesmith.Users WHERE username = ? AND id = ?',
