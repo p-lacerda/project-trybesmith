@@ -12,6 +12,14 @@ const createProduct = async (req: Request, res: Response):Promise<void> => {
   res.status(201).json(products);
 };
 
+const findAll = async (req: Request, res: Response):Promise<void> => {
+  // Send user body to services and receive a message and status code
+  const products = await ProductService.findAll();
+    
+  res.status(200).json(products);
+};
+
 export default {
   createProduct,
+  findAll,
 };

@@ -7,6 +7,9 @@ const createProduct = async (user:Product) => {
   return users;
 };
 
+const findAll = async () => ProductModel.findAll();
+
 export default {
   createProduct,
+  findAll,
 };

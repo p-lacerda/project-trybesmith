@@ -18,6 +18,14 @@ const createProduct = async (product: Product): Promise<IProduct> => {
   };
 };
 
+const findAll = async () => {
+  const [result] = await connection.execute<ResultSetHeader>(
+    'SELECT * FROM Trybesmith.Products', 
+  );
+  return result;
+};
+
 export default {
   createProduct,
+  findAll,
 };

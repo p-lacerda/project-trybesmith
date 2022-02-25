@@ -25,7 +25,7 @@ const validateToken = async (req: any, res: any, next: NextFunction) => {
 
     req.user = users;
     next();
-  } catch (err:any) {
+  } catch (err:unknown) {
     res.status(401).json({ error: 'Invalid token' });
   }
 };
