@@ -7,6 +7,20 @@ const createOrder = async (products: number[], id:number): Promise<IProducts> =>
   return orders;
 };
 
+const findAll = async () => {
+  const orders = await OrderModel.findAll();
+
+  return orders;
+};
+
+const findById = async (id: number) => {
+  const orders = await OrderModel.findById(id);
+  
+  return orders;
+};
+
 export default {
   createOrder,
+  findAll,
+  findById,
 };
