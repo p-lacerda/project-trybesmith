@@ -83,6 +83,10 @@ const errorMessages = {
     error: 'Products can\'t be empty',
     code: 422,
   },
+  ordersNotFound: {
+    error: 'Order not found',
+    code: 404,
+  },
 };
 
 export default errorMessages;

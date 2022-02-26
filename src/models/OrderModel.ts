@@ -9,7 +9,7 @@ const createOrder = async (products: number[], id:number): Promise<IProducts> =>
     'INSERT INTO Trybesmith.Orders (userId) VALUES (?)',
     [id],
   );
-  await ProductModel.updateProduct(products, id);
+  await ProductModel.updateProduct(products, insertId);
   return {
     order: {
       userId: insertId,
@@ -45,14 +45,16 @@ const findById = async (id: number):Promise<AllOrders> => {
     [id],
   );
 
+  const { id: idOrder, userId: userOrder } = order[0];
+
   const [products] = await connection.execute<AllProducts[]>(
-    'SELECT * FROM Trybesmith.Products WHERE id = ?',
-    [order[0].id],
+    'SELECT id FROM Trybesmith.Products WHERE orderId = ?',
+    [idOrder],
   );
 
   return {
-    id: order[0].id,
-    userId: order[0].userId,
+    id: idOrder,
+    userId: userOrder,
     products: products.map((product: { id: number }) => product.id),
   };
 };
